@@ -1,0 +1,46 @@
+<!doctype html>
+
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+  <title>Store Portal 
+  </title>
+  <style>
+    body {background-color: lightgray; font-family:open sans, sans-serif;font-size:10vw}
+    * {box-sizing:border-box;border-radius:8px}
+    .nav {text-align:center;}
+    nav {font-size:2vw;}
+    ul.nav {list-style-type:none;display:inline-block;}
+    li {float:left;}
+    li a {padding:0.5vw;text-decoration:none;color:black}
+    footer {font-size:1.5vw;background-color: lightgray;margin:20px;}
+  </style>
+  <meta name="viewport" content="width:device-width;initial-scale:1.0;">
+</head>
+
+<body>
+  <div class="nav">
+  <nav>
+    <uL class="nav">
+      {{ if . }}
+      <li><a href="/setting">Setting</a></li>
+      <li><a href="/offer" >Listing</a></li>
+      <li><a href="/report" >Report</a></li>
+      <li><a href="/logout">{{ . }}.Logout</a></li>
+      {{ else }}
+      <li><a href="#" style="color:gray">Setting</a></li>
+      <li><a href="#" style="color:gray">Listing</a></li>
+      <li><a href="#" style="color:gray">Report</a></li>
+      <li><a href="/login">Login</a></li>
+      {{ end }}
+    </ul>
+  </nav>
+  </div>
+  <p style="text-align:center;">Store Landing Page</p>
+  <footer>
+    Copyright @2024 All rights reserved.
+  </footer>
+</body>
+</html>
+

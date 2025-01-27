@@ -1,0 +1,103 @@
+<!doctype html>
+
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+  <title>System Admin Portal
+  </title>
+  <style>
+    body {background-color: lightgray; font-family:open sans, sans-serif;font-size:10vw}
+    * {box-sizing:border-box;border-radius:8px}
+    .nav {text-align:center;}
+    nav {font-size:2vw;}
+    ul.nav {list-style-type:none;display:inline-block;}
+    li.nav {float:left;}
+    li a {padding:0.5vw;text-decoration:none;color:black}
+    li a:hover {background-color: yellow;}
+    sup {background-color:red;color:white;padding:2px 4px;font-size:1vw;}
+    .main {display:flex; margin:5%;} 
+    ul.admin-account, ul.platform-view {list-style-type:none;font-size:2vw;}
+    div.admin-account,div.platform-view {
+      margin:4%;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      transition:0.5s;
+      padding:1% 4%;
+      -ms-flex:1;
+      flex:1;
+    }
+    div.platform-view:hover {box-shadow: 0 8px 16px 0 white;}
+    div.admin-account:hover {box-shadow: 0 8px 16px 0 white;}
+    div.admin-account li {margin: 2vw;}
+    div.platform-view li {margin: 2vw;}
+    h2 {font-size:3vw; width: 15%;}
+    form {display: inline;}
+    input {font-size: 2vw; padding: 0.5vw;}
+  </style>
+  <meta name="viewport" content="width:device-width;initial-scale:1.0;">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+</head>
+
+<body>
+  <div class="nav">
+  <nav>
+    <uL class="nav">
+      <li class="nav"><a href="">Support<sup>+78</sup></a></li>
+      <li class="nav"><a href="">Login<sub>out</sub></a></li>
+    </ul>
+  </nav>
+  </div>
+  <div class="main">
+    <h2>Dashboard.</h2>
+  <div class="platform-view">
+      <ul class="platform-view">
+      <li><a href="">Activity</a></li>
+      <div class="graph">
+        <canvas id="systemChart" style="width:100%;max-width:600px"></canvas>
+      </div>
+      <li><a href="">Payment History</a></li>
+      <ul>
+  </div>
+</div>
+  
+  <div class="main">
+    <h2>Admin Mgmt.</h2>
+  <div class="admin-account">
+      <h2>Admin User</h2>
+      <ul class="admin-account">
+      <li><a href="">Registration</a></li>
+      <li>
+        <form class="search"><input type="text" name="search" placeholder="Search..">
+        </form>
+      </li>
+      <li><a href="">Support<sup>+78</sup></a></li>
+      <ul>
+  </div>
+  
+  </div>
+</body>
+<script>
+  var xValues = ["Active Shoppers", "Active Stores", "trades", "Latency", "Active Admins", "Security Warnings"];
+  var yValues = [45, 49, 44, 24, 30, 16];
+  var barColors = ["tomato", "green","blue","orange","pink", "red"];
+  
+  new Chart("systemChart", {
+    type: "horizontalBar",
+    data: {
+      labels: xValues,
+      datasets: [{
+        backgroundColor: barColors,
+        data: yValues
+      }]
+    },
+    options: {
+      legend: {display: false},
+      title: {
+        display: true,
+        text: "Live Performance"
+      }
+    }
+  });
+  </script>
+</html>
+

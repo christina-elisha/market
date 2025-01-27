@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <title>Store</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width:device-width;initial-scale:1.0;">
+    <style>
+    body {background-color: lightgray;
+        font-size:2vw;font-family:open sans, sans-serif;}
+    .report {
+      display: flex;
+      background-color: lightgray;
+      border-radius: 2vw;
+    }
+    .report > div {
+      display: inline-block;
+      background-color: lightgrey;
+      margin: 2vw;
+      padding: 2vw;
+      border-radius: 2vw;
+    }
+    .report > .graph {
+      box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
+      width: 60%;
+      position: relative;
+    }
+    .report > .text {
+      box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
+      width: 30%;
+      position: relative;
+    }
+    .report > .graph:hover {
+      box-shadow: 0 4px 8px 0 rgba(255,255,255,0.2);
+    }
+    .report > .text:hover {
+      box-shadow: 0 4px 8px 0 rgba(255,255,255,0.2);
+    }
+    ul {list-style-type: none;}
+    div.fixed {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      width: 30vw;
+      border: 0.1vw solid #73AD21;
+      border-radius: 4vw;
+      background-color: rgba(211,211,211,0.1);
+      padding: 1vw;
+    }  
+    div.fixed > ul {display: inline; list-style-type: none;}
+    div.fixed > ul li {display: inline-block; padding: 0.5vw; font-size: 1.7vw;}
+    div.fixed > ul li a {text-decoration: none; color: black;}
+    div.fixed > ul li a:hover {background: #555;}
+    
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+  </head>
+<body>
+<h2>Report.{{.}}</h2>
+<div class="report">
+  <div class="graph">
+    <canvas id="saleChart" style="width:100%;max-width:600px"></canvas>
+  </div>
+  <div class="text" id="text">
+    <ul>
+      <span>Past sales</span>
+    <li><a href="#">May 2022</a></li>
+    <li><a href="#">June 2022</a></li>
+    <li><a href="#">July 2022</a></li>
+    <li><a href="#">Aug 2022</a></li>
+    <li><a href="#">Sept 2022</a></li>
+    <li><a href="#">Oct 2022</a></li>
+    </ul>
+  </div>
+</div>
+<div class="fixed">
+<ul>
+    <li>
+      <a href="/offer">Offer</a>
+    </li>
+    <li>
+      <a href="/report">Report</a>
+    </li>
+    <li>
+      <a href="/setting">Setting</a>
+    </li>
+  </ul>
+</div>
+</body>
+<script>
+  var xValues = ["May", "June", "July", "Auguest", "September"];
+  var yValues = [45, 49, 44, 24, 50];
+  var barColors = ["white", "green","blue","orange","red"];
+  
+  new Chart("saleChart", {
+    type: "bar",
+    data: {
+      labels: xValues,
+      datasets: [{
+        backgroundColor: barColors,
+        data: yValues
+      }]
+    },
+    options: {
+      legend: {display: false},
+      title: {
+        display: true,
+        text: "Sales in Most Recent Months"
+      }
+    }
+  });
+  </script>
+</html>
+
+

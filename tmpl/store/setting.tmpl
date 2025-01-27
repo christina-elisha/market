@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <title>Store</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width:device-width;initial-scale:1.0;">
+    <style>
+    body {background-color: lightgray;
+        font-size:2vw;font-family:open sans, sans-serif;}
+    .setting {
+      display: flex;
+      background-color: lightgray;
+      border-radius: 2vw;
+      padding: 2vw;
+      box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
+      width: 80%;
+      margin: auto;
+    }
+    .setting:hover {
+      box-shadow: 0 4px 8px 0 rgba(255,255,255,0.2);
+    }
+    ul {list-style-type: none; margin: auto;}
+    ul > li {margin: 2vw;}
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      border-bottom: 1px dotted black;
+    }
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 120px;
+      padding: 5px 0;
+      border-radius: 6px;
+      position: absolute;
+      top: 10px;
+      left: 105%;
+      z-index: 1;
+    }
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+    }
+
+    div.fixed {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      width: 40vw;
+      border: 0.1vw solid #73AD21;
+      border-radius: 4vw;
+      background-color: rgba(211,211,211,0.1);
+      padding: 1vw;
+    }  
+    div.fixed > ul {display: inline; list-style-type: none;}
+    div.fixed > ul li {display: inline-block; padding: 0.5vw; font-size: 1.7vw;}
+    div.fixed > ul li a {text-decoration: none; color: black;}
+    div.fixed > ul li a:hover {background: #555;}
+    
+    </style>
+  </head>
+<body>
+<h2>Setting.</h2>
+<div class="setting">
+    <ul>
+    <li>Store Hours<br>
+    <span style="color:blue;">{{index .Hour.Open 0}}:{{index .Hour.Open 1}} 
+      {{index .Hour.Close 0}}:{{index .Hour.Close 1}}</span></li>
+    <li>
+      <div class="tooltip">Store Address<br>
+        <span style="color:blue;">{{.Address}}</span>
+           <span class="tooltiptext">
+           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5208.36726267224!2d-122.90228982457316!3d49.25396527278884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54867830c2815419%3A0x7c0770f8ce25a941!2s4949%20Canada%20Way%2C%20Burnaby%2C%20BC%20V5G%201M2!5e0!3m2!1sen!2sca!4v1723786166799!5m2!1sen!2sca" 
+           width="400" height="300" style="border:0;border-radius: 6px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </span>
+        </div>
+    </li>
+    <li><a href="/support">Support</a></li>
+    <li><a href="/logout">Log out</a></li>
+    </ul>
+ </div>
+<div class="fixed">
+<ul>
+    <li>
+      <a href="/offer">Listing</a>
+    </li>
+    <li>
+      <a href="/report">Report</a>
+    </li>
+    <li>
+      <a href="/setting">Setting</a>
+    </li>
+  </ul>
+</div>
+</body>
+
+</html>
+
+

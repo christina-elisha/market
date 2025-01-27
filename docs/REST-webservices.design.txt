@@ -1,0 +1,30 @@
+// 
+//  REST web services 
+//
+//  Created by Rex on 2024-06-13.
+//  updated on 2024-10-29
+
+persona: shopper 
+  Account setup
+  Login 
+  Query
+  Transact
+  Support request
+  History log
+
+persona: store
+  Login
+  Offer
+  setting
+  Report
+  Store_Landing_Page
+
+persona: admin
+  store crud & support
+  shopper support
+  Admin_Landing_Page
+persona: system_admin
+  admin crud
+  security & latency 
+  database
+  System_Admin_Landing_Page  

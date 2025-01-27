@@ -1,0 +1,170 @@
+//
+//  DataModel
+//  Created 2024-06-11
+//  Updated 2024-08-20
+
+Version: 0.1
+database platform: couchbase 7.6
+
+Data Definition
+
+bucket
+  market(a.k.a. bitbought network)
+
+scope.collection
+  role
+      .shopper
+      .store
+      .admin (admin & system admin)
+  activity
+      .authenticate_shopper
+      .authenticate_store
+      .authenticate_admin
+      .transact
+      .support
+  metrics
+      .worklog
+  counter
+      .shopper_counter
+      .store_counter
+      .admin_counter
+      .authenticate_shopper_counter
+      .authenticate_store_counter
+      .authenticate_admin_counter
+      .transact_counter
+      .support_counter
+      .worklog_counter
+
+document definition
+
+role
+shopper
+  _version
+  _type
+  _created
+  _createdby
+  _modified
+  _modifiedBy
+  shopper_id
+  name
+  phone
+  email
+  payment
+store
+  _version
+  _type
+  _created
+  _createdby
+  _modified
+  _modifiedBy
+  store_id
+  name
+  phone
+  address
+  email
+  fax
+  url
+  geo // {lat  lon }
+  city
+  prov
+  country
+  hours
+  listing
+  bank
+admin
+  _version
+  _type
+  _created
+  _createdBy
+  _modified
+  _modifiedBy
+  admin_id
+  name
+  driver_license
+  passport
+  city
+  prov
+  country
+  email
+  phone
+  class (a system_admin, b admin)
+  rating
+
+activity
+authenticate_shopper
+  _version
+  _type
+  _created
+  _createdBy
+  _modified
+  _modifiedBy
+  id
+  user
+  pass_word
+  shopper_id
+authenticate_store
+  _version
+  _type
+  _created
+  _createdBy
+  _modified
+  _modifiedBy
+  id
+  user
+  pass_word
+  store_id
+authenticate_admin
+  _version
+  _type
+  _created
+  _createdBy
+  _modified
+  _modifiedBy
+  id
+  user
+  pass_word
+  admin_id
+transact
+  _version
+  _type
+  _created
+  id
+  shopper_id
+  store_id
+  location
+  order
+  status
+support
+  _version
+  _type
+  _created
+  _createdBy
+  _modified
+  _modifiedBy
+  id
+  store_id
+  shopper_id
+  admin_id
+  description
+  status
+
+metrics
+worklog
+  _version
+  _type
+  _created
+  _createdBy
+  id
+  content (activity, performance, security)
+  flag
+
+counter
+  shopper_counter
+  store_counter
+  admin_counter
+  authenticate_shopper_counter
+  authenticate_store_counter
+  authenticate_admin_counter
+  transact_counter
+  support_counter
+  worklog_counter
